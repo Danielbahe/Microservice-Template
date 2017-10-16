@@ -1,0 +1,10 @@
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.deps.json
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.runtimeconfig.json
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.runtimeconfig.dev.json
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.dll
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.pdb
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.csproj.CoreCompileInputs.cache
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.AssemblyInfoInputs.cache
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.AssemblyInfo.cs
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.dll
+C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.pdb

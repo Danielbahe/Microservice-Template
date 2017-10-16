@@ -1,0 +1,8 @@
+C:\Projects\Micro Services 2017\GatewayApi\StandardTest\obj\Debug\netstandard2.0\StandardTest.csproj.CoreCompileInputs.cache
+C:\Projects\Micro Services 2017\GatewayApi\StandardTest\obj\Debug\netstandard2.0\StandardTest.AssemblyInfoInputs.cache
+C:\Projects\Micro Services 2017\GatewayApi\StandardTest\obj\Debug\netstandard2.0\StandardTest.AssemblyInfo.cs
+C:\Projects\Micro Services 2017\GatewayApi\StandardTest\bin\Debug\netstandard2.0\StandardTest.deps.json
+C:\Projects\Micro Services 2017\GatewayApi\StandardTest\bin\Debug\netstandard2.0\StandardTest.dll
+C:\Projects\Micro Services 2017\GatewayApi\StandardTest\bin\Debug\netstandard2.0\StandardTest.pdb
+C:\Projects\Micro Services 2017\GatewayApi\StandardTest\obj\Debug\netstandard2.0\StandardTest.dll
+C:\Projects\Micro Services 2017\GatewayApi\StandardTest\obj\Debug\netstandard2.0\StandardTest.pdb
