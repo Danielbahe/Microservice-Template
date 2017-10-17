@@ -32,11 +32,15 @@ namespace GatewayApi.ServiceStrategy
                 {
                     var actionList = Assembly.GetEntryAssembly().DefinedTypes.Where(miau => miau.ImplementedInterfaces.Contains(typeof(IAction)));
 
-                    var selectedAction = actionList.First(m => m.FullName.StartsWith(condition.GetType().FullName.Replace("Condition", "Action")));
+                    var selectedAction = actionList.FirstOrDefault(m => m.FullName.StartsWith(condition.GetType().FullName.Replace("Condition", "Action")));
 
-                    var action = (IAction)Activator.CreateInstance(selectedAction.AsType());
-                      
-                    return action;
+                    if (selectedAction != null)
+                    {
+                        var action = (IAction) Activator.CreateInstance(selectedAction.AsType());
+
+                        return action;
+                    }
+                    // error
                 }
             }      
 

@@ -8,3 +8,14 @@ C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\Ga
 C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.AssemblyInfo.cs
 C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.dll
 C:\Projects\Micro Services 2017\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.pdb
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.deps.json
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.runtimeconfig.json
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.runtimeconfig.dev.json
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.dll
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\bin\Debug\netcoreapp2.0\GatewayApi.pdb
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.csprojResolveAssemblyReference.cache
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.csproj.CoreCompileInputs.cache
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.AssemblyInfoInputs.cache
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.AssemblyInfo.cs
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.dll
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi\obj\Debug\netcoreapp2.0\GatewayApi.pdb

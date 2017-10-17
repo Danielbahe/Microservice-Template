@@ -7,3 +7,11 @@ C:\Projects\Micro Services 2017\RabbitCommunications\RabbitCommunications\obj\Re
 C:\Projects\Micro Services 2017\RabbitCommunications\RabbitCommunications\obj\Release\netstandard2.0\RabbitCommunications.AssemblyInfo.cs
 C:\Projects\Micro Services 2017\RabbitCommunications\RabbitCommunications\obj\Release\netstandard2.0\RabbitCommunications.dll
 C:\Projects\Micro Services 2017\RabbitCommunications\RabbitCommunications\obj\Release\netstandard2.0\RabbitCommunications.pdb
+C:\Projects\Microservice-Template\RabbitCommunications\RabbitCommunications\bin\Release\netstandard2.0\RabbitCommunications.deps.json
+C:\Projects\Microservice-Template\RabbitCommunications\RabbitCommunications\bin\Release\netstandard2.0\RabbitCommunications.dll
+C:\Projects\Microservice-Template\RabbitCommunications\RabbitCommunications\bin\Release\netstandard2.0\RabbitCommunications.pdb
+C:\Projects\Microservice-Template\RabbitCommunications\RabbitCommunications\obj\Release\netstandard2.0\RabbitCommunications.csproj.CoreCompileInputs.cache
+C:\Projects\Microservice-Template\RabbitCommunications\RabbitCommunications\obj\Release\netstandard2.0\RabbitCommunications.AssemblyInfoInputs.cache
+C:\Projects\Microservice-Template\RabbitCommunications\RabbitCommunications\obj\Release\netstandard2.0\RabbitCommunications.AssemblyInfo.cs
+C:\Projects\Microservice-Template\RabbitCommunications\RabbitCommunications\obj\Release\netstandard2.0\RabbitCommunications.dll
+C:\Projects\Microservice-Template\RabbitCommunications\RabbitCommunications\obj\Release\netstandard2.0\RabbitCommunications.pdb

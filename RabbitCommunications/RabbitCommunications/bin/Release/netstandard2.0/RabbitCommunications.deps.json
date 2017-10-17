@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "9933e24f5444a52ab34ce47e8845eaabf997e9bc"
+    "signature": "077fa150cd46081915ca5b9105977eef2baa41d5"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,12 +9,22 @@
     ".NETStandard,Version=v2.0/": {
       "RabbitCommunications/1.0.0": {
         "dependencies": {
+          "Autofac": "4.6.1",
           "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "10.0.3",
           "RabbitMQ.Client": "5.0.1"
         },
         "runtime": {
           "RabbitCommunications.dll": {}
+        }
+      },
+      "Autofac/4.6.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.0",
+          "System.ComponentModel": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
         }
       },
       "Microsoft.CSharp/4.3.0": {
@@ -875,6 +885,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Autofac/4.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/feXiAKiSe9XLK+fdnz0p1iDg6JCkOhjqMkw9ewGy0f6IzXgmPLDRa4FUg6nIGRm2sTO677w/76uJ5OJU6EiyA==",
+      "path": "autofac/4.6.1",
+      "hashPath": "autofac.4.6.1.nupkg.sha512"
     },
     "Microsoft.CSharp/4.3.0": {
       "type": "package",

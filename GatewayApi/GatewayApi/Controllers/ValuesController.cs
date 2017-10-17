@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using RabbitCommunications.Models;
 using Microsoft.AspNetCore.Mvc;
 using GatewayApi.ServiceStrategy;
@@ -25,82 +26,36 @@ namespace GatewayApi.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string Get(JObject id)
         {
-            var keyList = new List<string>();
-            foreach (var pair in this.Request.Headers)
-            {
-                keyList.Add(pair.Key);
-            }
-
-            var serializedBody = JsonConvert.SerializeObject(id);
-
-            //todo TEST
-            var per = new Person
-            {
-                Name = "dani",
-                Age = 3,
-                SurName = "Shurmano"
-            };
-            serializedBody = JsonConvert.SerializeObject(per);
-
-            var model = new RequestModel
-            {
-                Body = serializedBody,
-                Headers = castHeadersToDictionary(HttpContext.Request.Headers)
-            };
-            var jsonModel = JsonConvert.SerializeObject(model);
-
-            var action = ServiceSelector.Validate(keyList);
-
-            var response = action.ExecuteActions(jsonModel);
-
-            var jsonResponse = JsonConvert.SerializeObject(response);
-
-            return jsonResponse;
+            var response = SendToService(id);
+            return response;
         }
 
         // POST api/values
         [HttpPost]
         public string Post([FromBody]JObject value)
         {
-            var keyList = new List<string>();
-            foreach (var pair in this.Request.Headers)
-            {
-                keyList.Add(pair.Key);
-            }
-
-            var serializedBody = JsonConvert.SerializeObject(value);
-
-            var model = new RequestModel
-            {
-                Body = serializedBody,
-                Headers = castHeadersToDictionary(HttpContext.Request.Headers)
-            };
-            var jsonModel = JsonConvert.SerializeObject(model);
-
-            var action = ServiceSelector.Validate(keyList);
-
-            var response = action.ExecuteActions(jsonModel);
-
-            var jsonResponse = JsonConvert.SerializeObject(response);
-
-            return jsonResponse;
+            var response = SendToService(value);
+            return response;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public string Put(int id, [FromBody]string value)
         {
+            return "Use 'Post' method";
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public string Delete(JObject id)
         {
+            var response = SendToService(id);
+            return response;
         }
 
-        private Dictionary<string, string> castHeadersToDictionary(IHeaderDictionary headers)
+        private Dictionary<string, string> CastHeadersToDictionary(IHeaderDictionary headers)
         {
             var headerDictionary = new Dictionary<string, string>();
 
@@ -111,13 +66,27 @@ namespace GatewayApi.Controllers
 
             return headerDictionary;
         }
-    }
 
-    public class Person
-    {
-        public string Name { get; set; }
-        public string SurName { get; set; }
-        public int Age { get; set; }
-        public int Id { get; set; }
+        private string SendToService(JObject value)
+        {
+            var keyList = this.Request.Headers.Select(pair => pair.Key).ToList();
+
+            var serializedBody = JsonConvert.SerializeObject(value);
+
+            var model = new RequestModel
+            {
+                Body = serializedBody,
+                Headers = CastHeadersToDictionary(HttpContext.Request.Headers)
+            };
+            var jsonModel = JsonConvert.SerializeObject(model);
+
+            var action = ServiceSelector.Validate(keyList);
+
+            var response = action.ExecuteActions(jsonModel);
+
+            var jsonResponse = JsonConvert.SerializeObject(response);
+
+            return jsonResponse;
+        }
     }
 }

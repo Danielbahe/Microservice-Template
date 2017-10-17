@@ -9,3 +9,14 @@ C:\Projects\Micro Services 2017\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.
 C:\Projects\Micro Services 2017\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.AssemblyInfo.cs
 C:\Projects\Micro Services 2017\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.dll
 C:\Projects\Micro Services 2017\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.pdb
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\bin\Debug\netcoreapp2.0\PersonSevice.deps.json
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\bin\Debug\netcoreapp2.0\PersonSevice.runtimeconfig.json
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\bin\Debug\netcoreapp2.0\PersonSevice.runtimeconfig.dev.json
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\bin\Debug\netcoreapp2.0\PersonSevice.dll
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\bin\Debug\netcoreapp2.0\PersonSevice.pdb
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.csprojResolveAssemblyReference.cache
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.csproj.CoreCompileInputs.cache
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.AssemblyInfoInputs.cache
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.AssemblyInfo.cs
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.dll
+C:\Projects\Microservice-Template\PersonSevice\PersonSevice\obj\Debug\netcoreapp2.0\PersonSevice.pdb

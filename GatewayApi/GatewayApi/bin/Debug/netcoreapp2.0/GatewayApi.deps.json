@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "627656174ac8b60d8d6f4e9128cf7cdf7b8d7d87"
+    "signature": "f869ac6b4b164ff466d510d0bb608b3ade9e0ee5"
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +26,7 @@
           "Microsoft.AspNetCore.All": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0",
           "Newtonsoft.Json": "10.0.3",
-          "RabbitCommunications": "1.0.2-rc",
+          "RabbitCommunications": "1.0.0",
           "RabbitMQ.Client": "5.0.1"
         },
         "runtime": {
@@ -2348,7 +2348,7 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
-      "RabbitCommunications/1.0.2-rc": {
+      "RabbitCommunications/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "10.0.3",
           "RabbitMQ.Client": "5.0.1"
@@ -5149,12 +5149,12 @@
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
     },
-    "RabbitCommunications/1.0.2-rc": {
+    "RabbitCommunications/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uCkzpPUB/UJYoz+H91/E0EKVQ5zJv8cWOZWXBcVFKaOhX7VQhkpu1TEhDpKF+jEiJyawhcBfgdCqhzGiL6xZ2A==",
-      "path": "rabbitcommunications/1.0.2-rc",
-      "hashPath": "rabbitcommunications.1.0.2-rc.nupkg.sha512"
+      "sha512": "sha512-X4Us/YCmkkrBp/aTTyWZOzvc2X0tdH1IdUeh4Kkr6JORX1/9U/DwDMcQXFvkk7mjIZyPySe42NQc9cSePcXwCg==",
+      "path": "rabbitcommunications/1.0.0",
+      "hashPath": "rabbitcommunications.1.0.0.nupkg.sha512"
     },
     "RabbitMQ.Client/5.0.1": {
       "type": "package",

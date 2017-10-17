@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Autofac/4.6.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.ComponentModel": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1361,6 +1374,19 @@
     }
   },
   "libraries": {
+    "Autofac/4.6.1": {
+      "sha512": "/feXiAKiSe9XLK+fdnz0p1iDg6JCkOhjqMkw9ewGy0f6IzXgmPLDRa4FUg6nIGRm2sTO677w/76uJ5OJU6EiyA==",
+      "type": "package",
+      "path": "autofac/4.6.1",
+      "files": [
+        "autofac.4.6.1.nupkg.sha512",
+        "autofac.nuspec",
+        "lib/net45/Autofac.dll",
+        "lib/net45/Autofac.xml",
+        "lib/netstandard1.1/Autofac.dll",
+        "lib/netstandard1.1/Autofac.xml"
+      ]
+    },
     "Microsoft.CSharp/4.3.0": {
       "sha512": "P+MBhIM0YX+JqROuf7i306ZLJEjQYA9uUyRDE+OqwUI5sh41e2ZbPQV3LfAPh+29cmceE1pUffXsGfR4eMY3KA==",
       "type": "package",
@@ -4974,6 +5000,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Autofac >= 4.6.1",
       "NETStandard.Library >= 2.0.0",
       "Newtonsoft.Json >= 10.0.3",
       "RabbitMQ.Client >= 5.0.1"
@@ -4989,11 +5016,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Micro Services 2017\\RabbitCommunications\\RabbitCommunications\\RabbitCommunications.csproj",
+      "projectUniqueName": "C:\\Projects\\Microservice-Template\\RabbitCommunications\\RabbitCommunications\\RabbitCommunications.csproj",
       "projectName": "RabbitCommunications",
-      "projectPath": "C:\\Projects\\Micro Services 2017\\RabbitCommunications\\RabbitCommunications\\RabbitCommunications.csproj",
+      "projectPath": "C:\\Projects\\Microservice-Template\\RabbitCommunications\\RabbitCommunications\\RabbitCommunications.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Micro Services 2017\\RabbitCommunications\\RabbitCommunications\\obj\\",
+      "outputPath": "C:\\Projects\\Microservice-Template\\RabbitCommunications\\RabbitCommunications\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5007,7 +5034,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Projects\\local nugets": {},
+        "C:\\Projects\\Microservice-Template\\local nugets": {},
         "\\\\Diskstation\\varis\\LocalNuget\\Notifications": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -5034,6 +5061,10 @@
           "RabbitMQ.Client": {
             "target": "Package",
             "version": "5.0.1"
+          },
+          "Autofac": {
+            "target": "Package",
+            "version": "4.6.1"
           },
           "Newtonsoft.Json": {
             "target": "Package",

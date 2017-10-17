@@ -1,9 +1,0 @@
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.deps.json
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.dll
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.pdb
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.csprojResolveAssemblyReference.cache
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.csproj.CoreCompileInputs.cache
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.AssemblyInfoInputs.cache
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.AssemblyInfo.cs
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.dll
-C:\Projects\Micro Services 2017\PersonSevice\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.pdb

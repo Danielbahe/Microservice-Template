@@ -12612,7 +12612,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Projects\\local nugets": {},
+        "C:\\Projects\\Microservice-Template\\local nugets": {},
         "\\\\Diskstation\\varis\\LocalNuget\\Notifications": {},
         "https://api.nuget.org/v3/index.json": {}
       },
