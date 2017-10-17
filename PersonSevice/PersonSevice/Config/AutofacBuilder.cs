@@ -11,6 +11,7 @@ namespace PersonSevice.Config
 
             builder.RegisterType<PersonService>().As<IPersonService>();
             builder.RegisterType<PersonServiceDto>().As<IPersonServiceDto>();
+            builder.RegisterType<PersonRepository>().As<IPersonRepository>();
             
             Container = builder.Build();
 

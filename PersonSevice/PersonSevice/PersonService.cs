@@ -4,27 +4,28 @@ using System.Text;
 using Newtonsoft.Json;
 using PersonSevice.Models;
 using RabbitCommunications.Models;
+using RabbitCommunications.Senders;
 
 namespace PersonSevice
 {
     class PersonService: IPersonService
     {
-        public PersonService()
+        private IPersonRepository PersonRepository;
+        public PersonService(IPersonRepository personRepository)
         {
-            
+            PersonRepository = personRepository;
         }
         public Response<Person> SavePerson(Person model)
         {
             model.Id = 5;
-
-            Console.WriteLine("saved person: " + JsonConvert.SerializeObject(model));
-
+            
+            var data = this.PersonRepository.SavePerson(model);
             var response = new Response<Person>
             {
                 Succes = true,
-                Data = model
+                Data = data
             };
-
+            
             return response;
         }
 

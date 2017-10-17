@@ -17,7 +17,13 @@ namespace PersonSevice
             var personDto = JsonConvert.DeserializeObject<PersonDto>(model);
 
             //todo automapper
-            var person = personDto as Person;
+            var person = new Person
+            {
+                Age = personDto.Age,
+                Name = personDto.Name,
+                SurName = personDto.SurName
+            };
+
 
             var personResponse = PersonService.SavePerson(person);
 
