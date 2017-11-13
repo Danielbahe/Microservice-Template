@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
+using RabbitCommunications.Models;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -57,6 +60,23 @@ namespace RabbitCommunications.Senders
                 autoAck: true);
 
             var response = respQueue.Take();
+
+            return response;
+        }
+
+        public string IsHealthy(string queueName)
+        {
+            var headers = new Dictionary<string, string>();
+            headers.Add("method", "ishealthy");
+
+            var request = new RequestModel
+            {
+                Headers = headers
+            };
+
+            var message = JsonConvert.SerializeObject(request);
+
+            var response = this.Call(message, queueName);
 
             return response;
         }

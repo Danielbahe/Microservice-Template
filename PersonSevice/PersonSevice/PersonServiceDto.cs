@@ -31,8 +31,10 @@ namespace PersonSevice
             
             var response = new Response<PersonDto>
             {
-                Succes = true,
-                Data = personDto
+                Succes = personResponse.Succes,
+                Data = personResponse.Data as PersonDto,
+                ExceptionList = personResponse.ExceptionList,
+
             };
             return response;
         }

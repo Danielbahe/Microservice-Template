@@ -1,0 +1,8 @@
+C:\Projects\Microservice-Template\TransactionService\TransactionService\bin\Debug\netcoreapp2.0\TransactionService.deps.json
+C:\Projects\Microservice-Template\TransactionService\TransactionService\bin\Debug\netcoreapp2.0\TransactionService.runtimeconfig.json
+C:\Projects\Microservice-Template\TransactionService\TransactionService\bin\Debug\netcoreapp2.0\TransactionService.runtimeconfig.dev.json
+C:\Projects\Microservice-Template\TransactionService\TransactionService\bin\Debug\netcoreapp2.0\TransactionService.dll
+C:\Projects\Microservice-Template\TransactionService\TransactionService\obj\Debug\netcoreapp2.0\TransactionService.csprojResolveAssemblyReference.cache
+C:\Projects\Microservice-Template\TransactionService\TransactionService\obj\Debug\netcoreapp2.0\TransactionService.csproj.CoreCompileInputs.cache
+C:\Projects\Microservice-Template\TransactionService\TransactionService\obj\Debug\netcoreapp2.0\TransactionService.AssemblyInfoInputs.cache
+C:\Projects\Microservice-Template\TransactionService\TransactionService\obj\Debug\netcoreapp2.0\TransactionService.AssemblyInfo.cs

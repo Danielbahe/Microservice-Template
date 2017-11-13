@@ -9,5 +9,8 @@ namespace GatewayApi
     {
         public const string XamarinQueue = "xamarin";
         public const string MicroServiceQueue = "hello";
+        public const string UserServiceQueue = "userqueue";
+        public const string EventServiceQueue = "eventqueue";
+        public const string EventServiceListQueue = "eventlistqueue";
     }
 }

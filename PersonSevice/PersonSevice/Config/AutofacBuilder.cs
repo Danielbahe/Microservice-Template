@@ -17,6 +17,5 @@ namespace PersonSevice.Config
 
             return Container;
         }
-        
     }
 }

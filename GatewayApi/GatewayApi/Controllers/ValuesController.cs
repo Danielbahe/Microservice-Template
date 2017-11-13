@@ -42,9 +42,10 @@ namespace GatewayApi.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public string Put(int id, [FromBody]string value)
+        public string Put(int id, [FromBody]JObject value)
         {
-            return "Use 'Post' method";
+            var response = SendToService(value);
+            return response;
         }
 
         // DELETE api/values/5

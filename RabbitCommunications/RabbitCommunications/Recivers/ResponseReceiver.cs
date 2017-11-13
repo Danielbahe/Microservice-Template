@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using Autofac;
 using Newtonsoft.Json;
 using RabbitCommunications.Models;
@@ -35,7 +36,7 @@ namespace RabbitCommunications.Recivers
                 channel.BasicConsume(queue: queueName,
                     autoAck: false, consumer: consumer);
                 Console.WriteLine("Initializing... Queue Name:'" + queueName+ "' Service Name: '"+ serviceInterface+"'");
-
+                
                 consumer.Received += (model, ea) =>
                 {
                     Response<T> response = new Response<T>();
@@ -67,12 +68,15 @@ namespace RabbitCommunications.Recivers
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(" [.] " + e.Message);
+                        Console.WriteLine(" [Error] " + e.Message);
                         response.Succes = false;
+                        response.ExceptionList.Add(e);
                     }
                     finally
                     {
-                        var jsonResponse = JsonConvert.SerializeObject(response);
+                        var clientResponse = MapResponse<T>(response);
+
+                        var jsonResponse = JsonConvert.SerializeObject(clientResponse);
 
                         var responseBytes = Encoding.UTF8.GetBytes(jsonResponse);
 
@@ -86,6 +90,22 @@ namespace RabbitCommunications.Recivers
                 Console.WriteLine("Awaiting RPC requests");
                 Console.ReadLine();
             }
+        }
+
+        private static ClientResponse<T> MapResponse<T> (Response<T> response)
+        {
+            var clientResponse = new ClientResponse<T>();
+            clientResponse.Data = response.Data;
+            
+            clientResponse.HaveException = response.HaveException;
+            if (clientResponse.HaveException)
+            {
+                clientResponse.ErrorCode = response.ExceptionList.FirstOrDefault().GetType().ToString();
+                clientResponse.ErrorMessage = response.GetError().Message;
+            }
+            clientResponse.Succes = response.Succes;
+
+            return clientResponse;
         }
     }
 }
