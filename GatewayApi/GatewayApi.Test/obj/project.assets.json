@@ -2,19 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "Autofac/4.6.1": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.0",
-          "System.ComponentModel": "4.0.1"
-        },
-        "compile": {
-          "lib/netstandard1.1/Autofac.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.1/Autofac.dll": {}
-        }
-      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -2742,10 +2729,9 @@
           "lib/netstandard1.6/nunit.framework.dll": {}
         }
       },
-      "RabbitCommunications/1.4.0": {
+      "RabbitCommunications/1.0.0": {
         "type": "package",
         "dependencies": {
-          "Autofac": "4.6.1",
           "Newtonsoft.Json": "10.0.3",
           "RabbitMQ.Client": "5.0.1"
         },
@@ -4819,7 +4805,7 @@
           "Microsoft.AspNetCore.Cors": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0",
           "Newtonsoft.Json": "10.0.3",
-          "RabbitCommunications": "1.4.0",
+          "RabbitCommunications": "1.0.0",
           "RabbitMQ.Client": "5.0.1"
         },
         "compile": {
@@ -4832,19 +4818,6 @@
     }
   },
   "libraries": {
-    "Autofac/4.6.1": {
-      "sha512": "/feXiAKiSe9XLK+fdnz0p1iDg6JCkOhjqMkw9ewGy0f6IzXgmPLDRa4FUg6nIGRm2sTO677w/76uJ5OJU6EiyA==",
-      "type": "package",
-      "path": "autofac/4.6.1",
-      "files": [
-        "autofac.4.6.1.nupkg.sha512",
-        "autofac.nuspec",
-        "lib/net45/Autofac.dll",
-        "lib/net45/Autofac.xml",
-        "lib/netstandard1.1/Autofac.dll",
-        "lib/netstandard1.1/Autofac.xml"
-      ]
-    },
     "Libuv/1.10.0": {
       "sha512": "GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "type": "package",
@@ -7686,15 +7659,14 @@
         "nunit.nuspec"
       ]
     },
-    "RabbitCommunications/1.4.0": {
-      "sha512": "IvokRTZO5TUSAMsZozmsUO8tWiQnEGO/ceaTP7/dyldof+r8th1KrWPm/DtVZiLfHfgIZOd849/bMLooGN6B5Q==",
+    "RabbitCommunications/1.0.0": {
+      "sha512": "X4Us/YCmkkrBp/aTTyWZOzvc2X0tdH1IdUeh4Kkr6JORX1/9U/DwDMcQXFvkk7mjIZyPySe42NQc9cSePcXwCg==",
       "type": "package",
-      "path": "rabbitcommunications/1.4.0",
+      "path": "rabbitcommunications/1.0.0",
       "files": [
         "lib/RabbitCommunications.deps.json",
         "lib/RabbitCommunications.dll",
-        "lib/RabbitCommunications.pdb",
-        "rabbitcommunications.1.4.0.nupkg.sha512",
+        "rabbitcommunications.1.0.0.nupkg.sha512",
         "rabbitcommunications.nuspec"
       ]
     },
@@ -12796,7 +12768,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"RabbitCommunications 1.4.0\" se restauró con \".NETFramework,Version=v4.6.1\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v2.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "El paquete \"RabbitCommunications 1.0.0\" se restauró con \".NETFramework,Version=v4.6.1\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v2.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "RabbitCommunications",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.0"

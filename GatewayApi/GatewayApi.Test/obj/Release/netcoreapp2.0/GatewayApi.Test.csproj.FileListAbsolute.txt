@@ -1,0 +1,11 @@
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\bin\Release\netcoreapp2.0\GatewayApi.Test.deps.json
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\bin\Release\netcoreapp2.0\GatewayApi.Test.dll
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\bin\Release\netcoreapp2.0\GatewayApi.Test.pdb
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\bin\Release\netcoreapp2.0\GatewayApi.dll
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\bin\Release\netcoreapp2.0\GatewayApi.pdb
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\obj\Release\netcoreapp2.0\GatewayApi.Test.csprojResolveAssemblyReference.cache
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\obj\Release\netcoreapp2.0\GatewayApi.Test.csproj.CoreCompileInputs.cache
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\obj\Release\netcoreapp2.0\GatewayApi.Test.AssemblyInfoInputs.cache
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\obj\Release\netcoreapp2.0\GatewayApi.Test.AssemblyInfo.cs
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\obj\Release\netcoreapp2.0\GatewayApi.Test.dll
+C:\Projects\Microservice-Template\GatewayApi\GatewayApi.Test\obj\Release\netcoreapp2.0\GatewayApi.Test.pdb
