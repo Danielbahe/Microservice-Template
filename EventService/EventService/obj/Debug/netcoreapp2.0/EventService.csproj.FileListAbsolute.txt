@@ -8,3 +8,4 @@ C:\Projects\Microservice-Template\EventService\EventService\obj\Debug\netcoreapp
 C:\Projects\Microservice-Template\EventService\EventService\obj\Debug\netcoreapp2.0\EventService.AssemblyInfo.cs
 C:\Projects\Microservice-Template\EventService\EventService\obj\Debug\netcoreapp2.0\EventService.dll
 C:\Projects\Microservice-Template\EventService\EventService\obj\Debug\netcoreapp2.0\EventService.pdb
+C:\Projects\Microservice-Template\EventService\EventService\obj\Debug\netcoreapp2.0\EventService.csprojResolveAssemblyReference.cache

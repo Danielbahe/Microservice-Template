@@ -9,3 +9,14 @@ C:\Users\danie\source\repos\UserService\UserService\obj\Debug\netcoreapp2.0\User
 C:\Users\danie\source\repos\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.AssemblyInfo.cs
 C:\Users\danie\source\repos\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.dll
 C:\Users\danie\source\repos\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.pdb
+C:\Projects\Microservice-Template\UserService\UserService\bin\Debug\netcoreapp2.0\UserService.deps.json
+C:\Projects\Microservice-Template\UserService\UserService\bin\Debug\netcoreapp2.0\UserService.runtimeconfig.json
+C:\Projects\Microservice-Template\UserService\UserService\bin\Debug\netcoreapp2.0\UserService.runtimeconfig.dev.json
+C:\Projects\Microservice-Template\UserService\UserService\bin\Debug\netcoreapp2.0\UserService.dll
+C:\Projects\Microservice-Template\UserService\UserService\bin\Debug\netcoreapp2.0\UserService.pdb
+C:\Projects\Microservice-Template\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.csprojResolveAssemblyReference.cache
+C:\Projects\Microservice-Template\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.csproj.CoreCompileInputs.cache
+C:\Projects\Microservice-Template\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.AssemblyInfoInputs.cache
+C:\Projects\Microservice-Template\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.AssemblyInfo.cs
+C:\Projects\Microservice-Template\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.dll
+C:\Projects\Microservice-Template\UserService\UserService\obj\Debug\netcoreapp2.0\UserService.pdb

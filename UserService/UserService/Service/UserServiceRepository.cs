@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using RabbitCommunications.Models;
 using UserService.Models;
 using UserService.Service.Interfaces;
@@ -7,6 +8,10 @@ namespace UserService.Service
 {
     public class UserRepository : IUserRepository
     {
+        public UserRepository()
+        {
+            
+        }
         public Response<User> GetUserById(int id)
         {
             var response = new Response<User>();
@@ -15,11 +20,9 @@ namespace UserService.Service
                 var user = new User
                 {
                     Id = 1,
-                    Birth = new DateTime(1992, 8, 22),
-                    Name = "Dani",
-                    SurName = "Red"
+                    PersonList = new List<Person>(),
                 };
-
+                user.PersonList.Add(new Person{Name = "Dani", SurName = "red"});
                 response.Data = user;
                 response.Succes = true;
             }
@@ -46,12 +49,11 @@ namespace UserService.Service
                 var userBdd = new User
                 {
                     Id = 1,
-                    Birth = new DateTime(1992, 8, 22),
-                    Name = "Dani",
-                    SurName = "Red",
+                    
                     Admin = true,
                     CollaId = 1
                 };
+                user.PersonList.Add(new Person { Name = "Dani", SurName = "red" });
                 userBdd.UserName = user.UserName;
                 response.Data = userBdd;
                 response.Succes = true;
