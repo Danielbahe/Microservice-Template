@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace EventService.Models
 {
@@ -7,18 +8,18 @@ namespace EventService.Models
         public int Id { get; set; }
         public int CollaId { get; set; }
         public string Title { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string InitialHour { get; set; }
         public string EndHour { get; set; }
         public string Square { get; set; }
         public string Address { get; set; }
         public string Description { get; set; }
-        public string EventType { get; set; }
-        public List<UserDto> UserList { get; set; }
-        public List<UserDto> BusList { get; set; }
-        public List<UserDto> VeganDietList { get; set; }
-        public List<UserDto> DietList { get; set; }
-        public int Day { get; set; }
+        public int EventType { get; set; }
+        public List<Person> PersonList { get; set; }
+        public List<Person> BusList { get; set; }
+        public List<Person> VeganDietList { get; set; }
+        public List<Person> DietList { get; set; }
+        public List<string> Pinyes { get; set; }
 
     }
 }

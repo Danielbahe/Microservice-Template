@@ -7,7 +7,7 @@ using RabbitCommunications.Models;
 
 namespace EventService.Service
 {
-    public class EventServiceDto: IEventServiceDto
+    public class EventServiceDto : IEventServiceDto
     {
         public IEventService EventService { get; set; }
 
@@ -16,9 +16,9 @@ namespace EventService.Service
             this.EventService = EventService;
         }
 
-        public Response<List<EventDto>> GetWeekEvents(string jsonDate)
+        public Response<List<EventDto>> GetWeekEvents(string jsonEvent)
         {
-            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonDate);
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonEvent);
             var date = eventDto.Date;
             var response = this.EventService.GetWeekEvents(date);
 
@@ -47,7 +47,21 @@ namespace EventService.Service
 
         public Response<EventDto> CreateEvent(string jsonEvent)
         {
-            throw new System.NotImplementedException();
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonEvent);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.CreateEvent(Event);
+
+            eventDto = Mapper.Map<EventDto>(response);
+            
+            var responseDto = new Response<EventDto>
+            {
+                Data = eventDto,
+                ExceptionList = response.ExceptionList,
+                Succes = response.Succes
+            };
+
+            return responseDto;
         }
 
         public Response<EventDto> DeleteEvent(string jsonEvent)
@@ -60,7 +74,6 @@ namespace EventService.Service
             var eventDto = JsonConvert.DeserializeObject<EventDto>(dto);
             var user = Mapper.Map<Event>(eventDto);
             return user;
-
         }
 
         private Response<EventDto> MapResponse(Response<Event> response)

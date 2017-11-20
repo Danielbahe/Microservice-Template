@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EventService.Models;
 using EventService.Service.Interfaces;
 using RabbitCommunications.Models;
@@ -14,7 +15,7 @@ namespace EventService.Service
             this.EventServiceRepository = EventServiceRepository;
         }
 
-        public Response<List<Event>> GetWeekEvents(string date)
+        public Response<List<Event>> GetWeekEvents(DateTime date)
         {
             var eventList = this.EventServiceRepository.GetWeekEvents(date);
             return eventList;
@@ -27,7 +28,8 @@ namespace EventService.Service
 
         public Response<Event> CreateEvent(Event Event)
         {
-            throw new System.NotImplementedException();
+            var eventList = this.EventServiceRepository.CreateEvent(Event);
+            return eventList;
         }
 
         public Response<Event> DeleteEvent(Event Event)
