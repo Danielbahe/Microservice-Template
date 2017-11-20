@@ -10,7 +10,7 @@ namespace EventService.Models
         public string SurName { get; set; }
         public string Alias { get; set; }
         public int Height { get; set; }
-        public float Weight { get; set; }
+        public decimal Weight { get; set; }
         public DateTime BirthDate { get; set; }
     }
     public class PersonEntity

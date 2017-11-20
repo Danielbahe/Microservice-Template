@@ -42,7 +42,14 @@ namespace EventService.Service
 
         public Response<EventDto> SaveEvent(string jsonEvent)
         {
-            throw new System.NotImplementedException();
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonEvent);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.SaveEvent(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
         }
 
         public Response<EventDto> CreateEvent(string jsonEvent)
@@ -52,14 +59,7 @@ namespace EventService.Service
 
             var response = this.EventService.CreateEvent(Event);
 
-            eventDto = Mapper.Map<EventDto>(response);
-            
-            var responseDto = new Response<EventDto>
-            {
-                Data = eventDto,
-                ExceptionList = response.ExceptionList,
-                Succes = response.Succes
-            };
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
 
             return responseDto;
         }

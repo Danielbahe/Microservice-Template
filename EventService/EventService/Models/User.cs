@@ -10,7 +10,7 @@ namespace EventService.Models
         public int Role { get; set; }
         public int Colla { get; set; }
         public List<Person> PersonList { get; set; }
-        public int Status { get; set; }
+        public int State { get; set; }
     }
 
     public class UserEntity

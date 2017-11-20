@@ -17,7 +17,9 @@ namespace EventService.Config
                 {
                     cfg.CreateMap<Event, EventDto>().ReverseMap();
                     cfg.CreateMap<Response<Event>, Response<EventDto>>().ReverseMap();
-                    cfg.CreateMap<Response<List<Event>>, Response<List<EventDto>>>().ReverseMap();
+                    cfg.CreateMap<List<EventEntity>, List<Event>>().ReverseMap();
+
+                    cfg.CreateMap<Response<List<Event>>, Response<List<EventDto>>>();
                 });
 
                 Mapper.Configuration.AssertConfigurationIsValid();

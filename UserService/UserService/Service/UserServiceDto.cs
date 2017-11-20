@@ -16,11 +16,11 @@ namespace UserService.Service
             this.userService = userService;
         }
 
-        public Response<UserDto> GetUserById(string idJson)
+        public Response<UserDto> GetUserById(string userJson)
         {
-            var id = JsonConvert.DeserializeObject<int>(idJson);
+            var user = JsonConvert.DeserializeObject<User>(userJson);
 
-            var response = this.userService.GetUserById(id);
+            var response = this.userService.GetUserById(user.Id);
 
             return MapResponse(response);
 

@@ -13,7 +13,7 @@ namespace UserService
     {
         static void Main()
         {
-            SendEmailTest();
+            //SendEmailTest();
             Worker workerObject = new Worker();
             Thread workerThread = new Thread(workerObject.DoWork);
             workerThread.Start();

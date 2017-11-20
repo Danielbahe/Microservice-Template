@@ -23,7 +23,8 @@ namespace EventService.Service
 
         public Response<Event> SaveEvent(Event Event)
         {
-            throw new System.NotImplementedException();
+            var eventList = this.EventServiceRepository.SaveEvent(Event);
+            return eventList;
         }
 
         public Response<Event> CreateEvent(Event Event)
