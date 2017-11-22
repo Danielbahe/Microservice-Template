@@ -447,91 +447,101 @@ namespace EventService.Service
         public Response<Event> GetEventAssistance(Event eve)
         {
             var response = new Response<Event>();
-
-            MySqlCommand cmd = new MySqlCommand(
-                "SELECT * FROM eventdbtest.persons p JOIN eventdbtest.eventperson e on p.Id = e.PersonId " + eve.Id,
-                Client);
-
-            using (var reader = cmd.ExecuteReader())
+            using (Client = new MySqlConnection(ConnectionStrings))
             {
-                while (reader.Read())
+                Client.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "SELECT * FROM eventdbtest.persons p JOIN eventdbtest.eventperson e on p.Id = e.PersonId " + eve.Id,
+                    Client);
+
+                using (var reader = cmd.ExecuteReader())
                 {
-                    var per = MapPerson(reader);
-                    if (Convert.ToInt32(reader["Performance"]) == 1)
+                    while (reader.Read())
                     {
-                        eve.PersonList.Add(per);
-                    }
+                        var per = MapPerson(reader);
+                        if (Convert.ToInt32(reader["Performance"]) == 1)
+                        {
+                            eve.PersonList.Add(per);
+                        }
 
-                    if (Convert.ToInt32(reader["Bus"]) == 1)
-                    {
-                        eve.BusList.Add(per);
-                    }
+                        if (Convert.ToInt32(reader["Bus"]) == 1)
+                        {
+                            eve.BusList.Add(per);
+                        }
 
-                    if (Convert.ToInt32(reader["Diet"]) == 1)
-                    {
-                        eve.DietList.Add(per);
-                    }
+                        if (Convert.ToInt32(reader["Diet"]) == 1)
+                        {
+                            eve.DietList.Add(per);
+                        }
 
-                    if (Convert.ToInt32(reader["Vegan"]) == 1)
-                    {
-                        eve.VeganDietList.Add(per);
+                        if (Convert.ToInt32(reader["Vegan"]) == 1)
+                        {
+                            eve.VeganDietList.Add(per);
+                        }
                     }
                 }
+                Client.Close();
             }
-            Client.Close();
-
             response.Data = eve;
             response.Succes = true;
             return response;
         }
             
-        public Response<Event> InsertPersonsDatabase(Person person)
+        public Response<Event> AddPerson(Person person)
         {
             var response = new Response<Event>();
-
-            var query =
-                "INSERT INTO persons VALUES (@Id , @Alias, @BirthDate, @Colla, @Height, @Name, @SurName, @Weight)";
-            MySqlCommand command = new MySqlCommand(query, Client);
-            command.Parameters.AddWithValue("@Id", person.Id).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@BirthDate", person.BirthDate).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Colla", person.Colla).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Height", person.Height).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Name", person.Name).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@SurName", person.SurName).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Weight", person.Weight).Direction = ParameterDirection.Input;
-
-            using (var reader = command.ExecuteReader())
+            using (Client = new MySqlConnection(ConnectionStrings))
             {
-            }
-            Client.Close();
+                Client.Open();
 
+                var query =
+                    "INSERT INTO persons VALUES (@Id , @Alias, @BirthDate, @Colla, @Height, @Name, @SurName, @Weight)";
+                MySqlCommand command = new MySqlCommand(query, Client);
+                command.Parameters.AddWithValue("@Id", person.Id).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@BirthDate", person.BirthDate).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Colla", person.Colla).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Height", person.Height).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Name", person.Name).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@SurName", person.SurName).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Weight", person.Weight).Direction = ParameterDirection.Input;
+
+                using (var reader = command.ExecuteReader())
+                {
+                }
+                Client.Close();
+            }
             response.Data = new Event();
             response.Succes = true;
             return response;
         }
 
-        public Response<Event> UpdatePersonsDatabase(Person person)
+        public Response<Event> UpdatePerson(Person person)
         {
             var response = new Response<Event>();
-
-            var query =
-                "UPDATE events SET Id = @Id ,Alias = @Alias, BirthDate = @BirthDate, Colla = @Colla, Height = @Height, Name = @Name, SurName = @SurName, Weight = @Weight where Id = " + person.Id;
-            MySqlCommand command = new MySqlCommand(query, Client);
-            command.Parameters.AddWithValue("@Id", person.Id).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@BirthDate", person.BirthDate).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Colla", person.Colla).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Height", person.Height).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Name", person.Name).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@SurName", person.SurName).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Weight", person.Weight).Direction = ParameterDirection.Input;
-
-            using (var reader = command.ExecuteReader())
+            using (Client = new MySqlConnection(ConnectionStrings))
             {
-            }
-            Client.Close();
+                Client.Open();
 
+                var query =
+                    "UPDATE persons SET Id = @Id ,Alias = @Alias, BirthDate = @BirthDate, Colla = @Colla, Height = @Height, Name = @Name, SurName = @SurName, Weight = @Weight where Id = " +
+                    person.Id;
+                MySqlCommand command = new MySqlCommand(query, Client);
+                command.Parameters.AddWithValue("@Id", person.Id).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@BirthDate", person.BirthDate).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Colla", person.Colla).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Height", person.Height).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Name", person.Name).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@SurName", person.SurName).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Weight", person.Weight).Direction = ParameterDirection.Input;
+
+                using (var reader = command.ExecuteReader())
+                {
+                }
+                Client.Close();
+            }
             response.Data = new Event();
             response.Succes = true;
             return response;
@@ -546,7 +556,7 @@ namespace EventService.Service
                 Client.Open();
                 MySqlCommand cmd =
                     new MySqlCommand(
-                        "delete from events e where e.Id = " + person.Id,
+                        "delete from persons e where e.Id = " + person.Id,
                         Client);
                 using (var reader = cmd.ExecuteReader())
                 {

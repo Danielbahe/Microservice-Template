@@ -160,22 +160,22 @@ namespace EventService.Service
             return responseDto;
         }
 
-        public Response<EventDto> UpdatePersonsDatabase(string personJson)
+        public Response<EventDto> UpdatePerson(string personJson)
         {
             var person = JsonConvert.DeserializeObject<Person>(personJson);
 
-            var response = this.EventService.UpdatePersonsDatabase(person);
+            var response = this.EventService.UpdatePerson(person);
 
             var responseDto = Mapper.Map<Response<EventDto>>(response);
 
             return responseDto;
         }
 
-        public Response<EventDto> InsertPersonsDatabase(string personJson)
+        public Response<EventDto> AddPerson(string personJson)
         {
             var person = JsonConvert.DeserializeObject<Person>(personJson);
 
-            var response = this.EventService.UpdatePersonsDatabase(person);
+            var response = this.EventService.AddPerson(person);
 
             var responseDto = Mapper.Map<Response<EventDto>>(response);
 
@@ -186,7 +186,7 @@ namespace EventService.Service
         {
             var person = JsonConvert.DeserializeObject<Person>(personJson);
 
-            var response = this.EventService.UpdatePersonsDatabase(person);
+            var response = this.EventService.DeletePerson(person);
 
             var responseDto = Mapper.Map<Response<EventDto>>(response);
 

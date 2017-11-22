@@ -94,15 +94,15 @@ namespace EventService.Service
             return eve;
         }
 
-        public Response<Event> UpdatePersonsDatabase(Person person)
+        public Response<Event> UpdatePerson(Person person)
         {
-            var eve = this.EventServiceRepository.UpdatePersonsDatabase(person);
+            var eve = this.EventServiceRepository.UpdatePerson(person);
             return eve;
         }
 
-        public Response<Event> InsertPersonsDatabase(Person person)
+        public Response<Event> AddPerson(Person person)
         {
-            var eve = this.EventServiceRepository.InsertPersonsDatabase(person);
+            var eve = this.EventServiceRepository.AddPerson(person);
             return eve;
         }
 

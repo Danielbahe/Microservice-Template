@@ -19,6 +19,7 @@ namespace UserService.Config
             builder.RegisterType<Service.UserService>().As<IUserService>();
             builder.RegisterType<UserServiceDto>().As<IUserServiceDto>();
             builder.RegisterType<UserRepository>().As<IUserRepository>();
+            builder.RegisterType<DatabaseUpdateService>().As<IDatabaseUpdateService>();
 
             Container = builder.Build();
 

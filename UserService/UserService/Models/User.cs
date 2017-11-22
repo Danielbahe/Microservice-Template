@@ -2,7 +2,7 @@
 
 namespace UserService.Models
 {
-    public class User
+    public class User : EntityBase
     {
         public int Id { get; set; }
         public string UserName { get; set; }

@@ -2,7 +2,7 @@
 
 namespace UserService.Models
 {
-    public class Person
+    public class Person : EntityBase
     {
         public int Colla { get; set; }
         public int Id { get; set; }

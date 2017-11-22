@@ -228,25 +228,27 @@ namespace UserService.Service
         public Response<User> UpdatePerson(Person person)
         {
             var response = new Response<User>();
-
-            var query =
-                "UPDATE persons SET Id = @Id ,Alias = @Alias, BirthDate = @BirthDate, Colla = @Colla, Height = @Height, Name = @Name, SurName = @SurName, Weight = @Weight where Id = " +
-                person.Id;
-            MySqlCommand command = new MySqlCommand(query, Client);
-            command.Parameters.AddWithValue("@Id", person.Id).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@BirthDate", person.BirthDate).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Colla", person.Colla).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Height", person.Height).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Name", person.Name).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@SurName", person.SurName).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("@Weight", person.Weight).Direction = ParameterDirection.Input;
-
-            using (var reader = command.ExecuteReader())
+            using (Client = new MySqlConnection(ConnectionStrings))
             {
-            }
-            Client.Close();
+                Client.Open();
+                var query =
+                    "UPDATE persons SET Id = @Id ,Alias = @Alias, BirthDate = @BirthDate, Colla = @Colla, Height = @Height, Name = @Name, SurName = @SurName, Weight = @Weight where Id = " +
+                    person.Id;
+                MySqlCommand command = new MySqlCommand(query, Client);
+                command.Parameters.AddWithValue("@Id", person.Id).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@BirthDate", person.BirthDate).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Colla", person.Colla).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Height", person.Height).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Name", person.Name).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@SurName", person.SurName).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Weight", person.Weight).Direction = ParameterDirection.Input;
 
+                using (var reader = command.ExecuteReader())
+                {
+                }
+                Client.Close();
+            }
             response.Succes = true;
             return response;
         }

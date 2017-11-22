@@ -18,8 +18,8 @@ namespace EventService.Service.Interfaces
         Response<EventDto> CancelAsistDietToEvent(string eventData);
         Response<EventDto> CancelAsistVeganToEvent(string Event);
         Response<EventDto> GetEventAssistance(string Event);
-        Response<EventDto> UpdatePersonsDatabase(string person);
-        Response<EventDto> InsertPersonsDatabase(string person);
+        Response<EventDto> UpdatePerson(string person);
+        Response<EventDto> AddPerson(string person);
         Response<EventDto> DeletePerson(string person);
     }
 }

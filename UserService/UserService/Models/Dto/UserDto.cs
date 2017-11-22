@@ -2,7 +2,7 @@
 
 namespace UserService.Models.Dto
 {
-    public class UserDto
+    public class UserDto : EntityBase
     {
         public int Id { get; set; }
         public string UserName { get; set; }

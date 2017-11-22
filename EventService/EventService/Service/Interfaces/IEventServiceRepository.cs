@@ -20,8 +20,8 @@ namespace EventService.Service.Interfaces
         Response<Event> AsistVeganToEvent(Event eventData);
         Response<Event> CancelAsistVeganToEvent(Event Event);
         Response<Event> GetEventAssistance(Event Event);
-        Response<Event> UpdatePersonsDatabase(Person person);
-        Response<Event> InsertPersonsDatabase(Person person);
+        Response<Event> UpdatePerson(Person person);
+        Response<Event> AddPerson(Person person);
         Response<Event> DeletePerson(Person person);
     }
 }

@@ -10,6 +10,15 @@ namespace GatewayApi.ServiceStrategy.Conditions
             
             return true;
         }
+    }
 
+    public class UserServiceListConditions : ICondition
+    {
+        public bool ValidateConditions(List<string> keys)
+        {
+            if (!keys.Contains(QueuesNames.EventServiceListQueue)) return false;
+
+            return true;
+        }
     }
 }

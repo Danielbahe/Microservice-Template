@@ -13,9 +13,14 @@ namespace EventService
         {
             MapBuilder.BuildMap();
 
-            Worker workerObject = new Worker();
-            Thread workerThread = new Thread(workerObject.DoWork);
-            workerThread.Start();
+            PersonListWorker personListWorker = new PersonListWorker();
+            Thread workerThread1 = new Thread(personListWorker.DoWork);
+            workerThread1.Start();
+
+            UpdatePersonDatabaseWorker updatePersonDatabaseWorker = new UpdatePersonDatabaseWorker();
+            Thread workerThread2 = new Thread(updatePersonDatabaseWorker.DoWork);
+            workerThread2.Start();
+
 
             var autofac = new AutofacBuilder();
             var container = autofac.Initialize();
@@ -31,7 +36,7 @@ namespace EventService
         }
     }
 
-    public class Worker
+    public class PersonListWorker
     {
         public void DoWork()
         {
@@ -41,6 +46,24 @@ namespace EventService
             using (container)
             {
                 ResponseReceiver.Recieve<List<EventDto>>("eventlistqueue", "IEventServiceDto", container);
+                while (true)
+                {
+                    Console.ReadLine();
+                }
+            }
+        }
+    }
+
+    public class UpdatePersonDatabaseWorker 
+    {
+        public void DoWork()
+        {
+            var autofac = new AutofacBuilder();
+            var container = autofac.Initialize();
+
+            using (container)
+            {
+                ResponseReceiver.Recieve<EventDto>("persondbqueue", "IEventServiceDto", container);
                 while (true)
                 {
                     Console.ReadLine();

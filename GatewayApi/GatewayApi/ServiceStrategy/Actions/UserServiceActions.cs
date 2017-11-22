@@ -13,4 +13,16 @@ namespace GatewayApi.ServiceStrategy.Actions
             return responseJson;
         }
     }
+
+    public class UserServiceListActions : IAction
+    {
+        public string ExecuteActions(string json)
+        {
+            var rpcClient = new ResponseSender();
+            var responseJson = rpcClient.Call(json, QueuesNames.EventServiceListQueue);
+            rpcClient.Close();
+
+            return responseJson;
+        }
+    }
 }

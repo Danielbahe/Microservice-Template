@@ -9,10 +9,11 @@ namespace UserService.Service
     public class UserService: IUserService
     {
         private IUserRepository userServiceRepository;
-
-        public UserService(IUserRepository userServiceRepository)
+        private IDatabaseUpdateService dbUpdater;
+        public UserService(IUserRepository userServiceRepository, IDatabaseUpdateService dbUpdater)
         {
             this.userServiceRepository = userServiceRepository;
+            this.dbUpdater = dbUpdater;
         }
 
         public Response<User> GetUserById(int id)
@@ -67,21 +68,24 @@ namespace UserService.Service
         public Response<User> AddPerson(Person person)
         {
             var response = userServiceRepository.AddPerson(person);
-            //todo update event service
+            response.Succes = dbUpdater.AddPersons(person, "AddPerson");
+
             return response;
         }
 
         public Response<User> DeletePerson(Person person)
         {
             var response = userServiceRepository.DeletePerson(person);
-            //todo update event service
+            response.Succes = dbUpdater.DeletePersons(person, "DeletePerson");
+
             return response;
         }
 
         public Response<User> UpdatePerson(Person person)
         {
             var response = userServiceRepository.UpdatePerson(person);
-            //todo update event service
+            response.Succes = dbUpdater.UpdatePersons(person, "UpdatePerson");
+
             return response;
         }
 
