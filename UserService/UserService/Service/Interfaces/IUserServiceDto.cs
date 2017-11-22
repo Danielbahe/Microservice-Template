@@ -1,12 +1,24 @@
-﻿using RabbitCommunications.Models;
+﻿using System.Collections.Generic;
+using RabbitCommunications.Models;
 using UserService.Models.Dto;
+using UserService.Models;
 
-namespace UserService.Service.Interfaces
+namespace UserDtoService.Service.Interfaces
 {
     public interface IUserServiceDto
     {
-        Response<UserDto> GetUserById(string id);
-        Response<UserDto> RegisterUser(string user);
-        Response<UserDto> Login(string user);
+        Response<UserDto> GetUserById(string userJson);
+        Response<UserDto> RegisterUser(string UserDto);
+        Response<UserDto> Login(string UserDto);
+        Response<UserDto> GetUserPersons(string UserDto);
+        Response<UserDto> ActivateUser(string UserDto);
+        Response<UserDto> RetrievePassword(string UserDto);
+        Response<UserDto> ChangePassword(string UserDto);
+        Response<UserDto> AddPerson(string UserDto);
+        Response<UserDto> DeletePerson(string UserDto);
+        Response<UserDto> UpdatePerson(string UserDto);
+        Response<List<UserDto>> GetChangedPasswordUsers(string userJson);
+        Response<List<UserDto>> GetAllUsers(string userJson);
+        //Response<UserDto> UpdateUserDto(Person UserDto);
     }
 }

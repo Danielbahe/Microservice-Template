@@ -4,6 +4,8 @@ using System.Text;
 using Autofac;
 using UserService.Service;
 using UserService.Service.Interfaces;
+using UserDtoService.Service.Interfaces;
+using UserService.Models.Dto;
 
 namespace UserService.Config
 {

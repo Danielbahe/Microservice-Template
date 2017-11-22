@@ -1,6 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using Newtonsoft.Json;
 using RabbitCommunications.Models;
+using UserDtoService.Service.Interfaces;
 using UserService.Models;
 using UserService.Models.Dto;
 using UserService.Service.Interfaces;
@@ -16,46 +18,130 @@ namespace UserService.Service
             this.userService = userService;
         }
 
-        public Response<UserDto> GetUserById(string userJson)
+        public Response<UserDto> GetUserById(string idJson)
         {
-            var user = JsonConvert.DeserializeObject<User>(userJson);
+            var id = JsonConvert.DeserializeObject<int>(idJson);
 
-            var response = this.userService.GetUserById(user.Id);
+            var response = this.userService.GetUserById(id);
 
-            return MapResponse(response);
-
-        }
-
-        public Response<UserDto> RegisterUser(string userjson)
-        {
-            var user = MapDto(userjson);
-            var response = this.userService.RegisterUser(user);
-
-            return MapResponse(response);
-
-        }
-
-        public Response<UserDto> Login(string userjson)
-        {
-            var user = MapDto(userjson);
-            var response = this.userService.Login(user);
-
-            return MapResponse(response);
-        }
-
-        private User MapDto(string dto)
-        {
-            var userDto = JsonConvert.DeserializeObject<UserDto>(dto);
-            var user = Mapper.Map<User>(userDto);
-            return user;
-
-        }
-
-        private Response<UserDto> MapResponse(Response<User> response)
-        {
             var responseDto = Mapper.Map<Response<UserDto>>(response);
             return responseDto;
         }
-    }
 
+        public Response<UserDto> RegisterUser(string userJson)
+        {
+            var userDto = JsonConvert.DeserializeObject<UserDto>(userJson);
+            var user = Mapper.Map<User>(userDto);
+
+            var response = this.userService.RegisterUser(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> Login(string userJson)
+        {
+            var userDto = JsonConvert.DeserializeObject<UserDto>(userJson);
+            var user = Mapper.Map<User>(userDto);
+
+            var response = this.userService.Login(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+        
+        public Response<UserDto> GetUserPersons(string userJson)
+        {
+            var userDto = JsonConvert.DeserializeObject<UserDto>(userJson);
+            var user = Mapper.Map<User>(userDto);
+
+            var response = this.userService.GetUserPersons(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> ActivateUser(string userJson)
+        {
+            var userDto = JsonConvert.DeserializeObject<UserDto>(userJson);
+            var user = Mapper.Map<User>(userDto);
+
+            var response = this.userService.ActivateUser(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> RetrievePassword(string userJson)
+        {
+            var userDto = JsonConvert.DeserializeObject<UserDto>(userJson);
+            var user = Mapper.Map<User>(userDto);
+
+            var response = this.userService.RetrievePassword(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> ChangePassword(string userJson)
+        {
+            var userDto = JsonConvert.DeserializeObject<UserDto>(userJson);
+            var user = Mapper.Map<User>(userDto);
+
+            var response = this.userService.RetrievePassword(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> AddPerson(string userJson)
+        {
+            var person = JsonConvert.DeserializeObject<Person>(userJson);
+
+            var response = this.userService.AddPerson(person);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> DeletePerson(string userJson)
+        {
+            var person = JsonConvert.DeserializeObject<Person>(userJson);
+
+            var response = this.userService.DeletePerson(person);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> UpdatePerson(string userJson)
+        {
+            var person = JsonConvert.DeserializeObject<Person>(userJson);
+
+            var response = this.userService.UpdatePerson(person);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<List<UserDto>> GetChangedPasswordUsers(string collajson)
+        {
+            var collaId = JsonConvert.DeserializeObject<int>(collajson);
+
+            var response = this.userService.GetChangedPasswordUsers(collaId);
+
+            var responseDto = Mapper.Map<Response<List<UserDto>>>(response);
+            return responseDto;
+        }
+
+        public Response<List<UserDto>> GetAllUsers(string collajson)
+        {
+            var collaId = JsonConvert.DeserializeObject<int>(collajson);
+
+            var response = this.userService.GetAllUsers(collaId);
+
+            var responseDto = Mapper.Map<Response<List<UserDto>>>(response);
+            return responseDto;
+        }
+    }
 }

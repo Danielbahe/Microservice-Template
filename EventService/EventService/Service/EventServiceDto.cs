@@ -66,19 +66,143 @@ namespace EventService.Service
 
         public Response<EventDto> DeleteEvent(string jsonEvent)
         {
-            throw new System.NotImplementedException();
-        }
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonEvent);
+            var Event = Mapper.Map<Event>(eventDto);
 
-        private Event MapDto(string dto)
-        {
-            var eventDto = JsonConvert.DeserializeObject<EventDto>(dto);
-            var user = Mapper.Map<Event>(eventDto);
-            return user;
-        }
+            var response = this.EventService.DeleteEvent(Event);
 
-        private Response<EventDto> MapResponse(Response<Event> response)
-        {
             var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> AsistBusToEvent(string jsonEvent)
+        {
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonEvent);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.AsistBusToEvent(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> AsistDietToEvent(string jsonEvent)
+        {
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonEvent);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.AsistDietToEvent(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> AsistVeganToEvent(string jsonEvent)
+        {
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonEvent);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.AsistVeganToEvent(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> CancelAsistBusToEvent(string eventData)
+        {
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(eventData);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.CancelAsistBusToEvent(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> CancelAsistDietToEvent(string eventData)
+        {
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(eventData);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.CancelAsistDietToEvent(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> CancelAsistVeganToEvent(string eventData)
+        {
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(eventData);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.CancelAsistVeganToEvent(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> GetEventAssistance(string eventData)
+        {
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(eventData);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.GetEventAssistance(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> UpdatePersonsDatabase(string personJson)
+        {
+            var person = JsonConvert.DeserializeObject<Person>(personJson);
+
+            var response = this.EventService.UpdatePersonsDatabase(person);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> InsertPersonsDatabase(string personJson)
+        {
+            var person = JsonConvert.DeserializeObject<Person>(personJson);
+
+            var response = this.EventService.UpdatePersonsDatabase(person);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+        public Response<EventDto> DeletePerson(string personJson)
+        {
+            var person = JsonConvert.DeserializeObject<Person>(personJson);
+
+            var response = this.EventService.UpdatePersonsDatabase(person);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
+            return responseDto;
+        }
+
+
+        public Response<EventDto> AsistToEvent(string jsonEvent)
+        {
+            var eventDto = JsonConvert.DeserializeObject<EventDto>(jsonEvent);
+            var Event = Mapper.Map<Event>(eventDto);
+
+            var response = this.EventService.AsistToEvent(Event);
+
+            var responseDto = Mapper.Map<Response<EventDto>>(response);
+
             return responseDto;
         }
     }
