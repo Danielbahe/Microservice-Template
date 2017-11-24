@@ -100,5 +100,28 @@ namespace UserService.Service
             var response = userServiceRepository.GetAllUsers(collaId);
             return response;
         }
+
+        public Response<List<User>> GetAllNewUsers(int collaId)
+        {
+            var response = userServiceRepository.GetAllUsers(collaId);
+            return response;
+        }
+
+        public Response<User> UpdateRole(User user)
+        {
+            var response = userServiceRepository.UpdateRole(user);
+            return response;
+        }
+        public Response<User> ChangeSuperAdmin(User user)
+        {
+            var response = userServiceRepository.UpdateRole(user);
+            return response;
+        }
+
+        public Response<User> UpdateState(User user)
+        {
+            var response = userServiceRepository.UpdateState(user);
+            return response;
+        }
     }
 }

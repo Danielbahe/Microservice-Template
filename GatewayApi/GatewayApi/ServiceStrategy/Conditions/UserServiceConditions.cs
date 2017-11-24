@@ -16,7 +16,7 @@ namespace GatewayApi.ServiceStrategy.Conditions
     {
         public bool ValidateConditions(List<string> keys)
         {
-            if (!keys.Contains(QueuesNames.EventServiceListQueue)) return false;
+            if (!keys.Contains(QueuesNames.UserServiceListQueue)) return false;
 
             return true;
         }

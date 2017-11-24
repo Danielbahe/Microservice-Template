@@ -2,6 +2,10 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/Gate",
+      "sslPort": 0
+    },
     "iisExpress": {
       "applicationUrl": "http://localhost:63824/",
       "sslPort": 0
@@ -17,13 +21,20 @@
       }
     },
     "GatewayApi": {
-      "commandName": "Project",
+      "commandName": "IIS",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:63825/"
+    },
+    "IIS": {
+      "commandName": "IIS",
+      "workingDirectory": "http://localhost/Gate",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

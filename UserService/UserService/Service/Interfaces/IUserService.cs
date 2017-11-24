@@ -18,6 +18,10 @@ namespace UserService.Service.Interfaces
         Response<User> UpdatePerson(Person user);
         Response<List<User>> GetChangedPasswordUsers(int collaId);
         Response<List<User>> GetAllUsers(int collaId);
+        Response<List<User>> GetAllNewUsers(int collaId);
+        Response<User> UpdateRole(User userJson);
+        Response<User> ChangeSuperAdmin(User userJson);
+        Response<User> UpdateState(User userJson);
         //Response<User> UpdateUser(Person user);
 
     }

@@ -19,6 +19,10 @@ namespace UserDtoService.Service.Interfaces
         Response<UserDto> UpdatePerson(string UserDto);
         Response<List<UserDto>> GetChangedPasswordUsers(string userJson);
         Response<List<UserDto>> GetAllUsers(string userJson);
+        Response<List<UserDto>> GetAllNewUsers(string userJson);
+        Response<UserDto> UpdateRole(string userJson);
+        Response<UserDto> ChangeSuperAdmin(string userJson);
+        Response<UserDto> UpdateState(string userJson);
         //Response<UserDto> UpdateUserDto(Person UserDto);
     }
 }

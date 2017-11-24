@@ -88,7 +88,7 @@ namespace UserService.Service
             var userDto = JsonConvert.DeserializeObject<UserDto>(userJson);
             var user = Mapper.Map<User>(userDto);
 
-            var response = this.userService.RetrievePassword(user);
+            var response = this.userService.ChangePassword(user);
 
             var responseDto = Mapper.Map<Response<UserDto>>(response);
             return responseDto;
@@ -141,6 +141,45 @@ namespace UserService.Service
             var response = this.userService.GetAllUsers(collaId);
 
             var responseDto = Mapper.Map<Response<List<UserDto>>>(response);
+            return responseDto;
+        }
+
+        public Response<List<UserDto>> GetAllNewUsers(string collajson)
+        {
+            var collaId = JsonConvert.DeserializeObject<int>(collajson);
+
+            var response = this.userService.GetAllNewUsers(collaId);
+
+            var responseDto = Mapper.Map<Response<List<UserDto>>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> UpdateRole(string userJson)
+        {
+            var user = JsonConvert.DeserializeObject<User>(userJson);
+
+            var response = this.userService.UpdateRole(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+        public Response<UserDto> ChangeSuperAdmin(string userJson)
+        {
+            var user = JsonConvert.DeserializeObject<User>(userJson);
+
+            var response = this.userService.UpdateRole(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
+            return responseDto;
+        }
+
+        public Response<UserDto> UpdateState(string userJson)
+        {
+            var user = JsonConvert.DeserializeObject<User>(userJson);
+
+            var response = this.userService.UpdateState(user);
+
+            var responseDto = Mapper.Map<Response<UserDto>>(response);
             return responseDto;
         }
     }
