@@ -85,9 +85,7 @@ namespace GatewayApi.Controllers
 
             var response = action.ExecuteActions(jsonModel);
 
-            var jsonResponse = JsonConvert.SerializeObject(response);
-
-            return jsonResponse;
+            return response;
         }
     }
 }

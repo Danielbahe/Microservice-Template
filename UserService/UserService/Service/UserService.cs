@@ -103,7 +103,7 @@ namespace UserService.Service
 
         public Response<List<User>> GetAllNewUsers(int collaId)
         {
-            var response = userServiceRepository.GetAllUsers(collaId);
+            var response = userServiceRepository.GetAllNewUsers(collaId);
             return response;
         }
 

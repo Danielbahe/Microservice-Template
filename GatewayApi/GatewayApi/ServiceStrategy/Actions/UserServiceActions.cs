@@ -19,7 +19,7 @@ namespace GatewayApi.ServiceStrategy.Actions
         public string ExecuteActions(string json)
         {
             var rpcClient = new ResponseSender();
-            var responseJson = rpcClient.Call(json, QueuesNames.EventServiceListQueue);
+            var responseJson = rpcClient.Call(json, QueuesNames.UserServiceListQueue);
             rpcClient.Close();
 
             return responseJson;

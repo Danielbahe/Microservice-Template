@@ -210,7 +210,7 @@ namespace UserService.Service
             {
                 Client.Open();
                 var query =
-                    "INSERT INTO persons VALUES (@Id , @Alias, @BirthDate, @Colla, @Height, @Name, @SurName, @Weight)";
+                    "INSERT INTO persons VALUES (@Id , @Alias, @BirthDate, @Colla, @Height, @Name, @SurName, @Weight, @UserId)";
                 MySqlCommand command = new MySqlCommand(query, Client);
                 command.Parameters.AddWithValue("@Id", person.Id).Direction = ParameterDirection.Input;
                 command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
@@ -220,6 +220,7 @@ namespace UserService.Service
                 command.Parameters.AddWithValue("@Name", person.Name).Direction = ParameterDirection.Input;
                 command.Parameters.AddWithValue("@SurName", person.SurName).Direction = ParameterDirection.Input;
                 command.Parameters.AddWithValue("@Weight", person.Weight).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@UserId", person.Id).Direction = ParameterDirection.Input;
 
                 using (var reader = command.ExecuteReader())
                 {

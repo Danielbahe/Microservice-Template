@@ -124,31 +124,31 @@ namespace UserService.Service
             return responseDto;
         }
 
-        public Response<List<UserDto>> GetChangedPasswordUsers(string collajson)
+        public Response<List<UserDto>> GetChangedPasswordUsers(string userjson)
         {
-            var collaId = JsonConvert.DeserializeObject<int>(collajson);
+            var user = JsonConvert.DeserializeObject<User>(userjson);
 
-            var response = this.userService.GetChangedPasswordUsers(collaId);
+            var response = this.userService.GetChangedPasswordUsers(user.Colla);
 
             var responseDto = Mapper.Map<Response<List<UserDto>>>(response);
             return responseDto;
         }
 
-        public Response<List<UserDto>> GetAllUsers(string collajson)
+        public Response<List<UserDto>> GetAllUsers(string userjson)
         {
-            var collaId = JsonConvert.DeserializeObject<int>(collajson);
+            var user = JsonConvert.DeserializeObject<User>(userjson);
 
-            var response = this.userService.GetAllUsers(collaId);
+            var response = this.userService.GetAllUsers(user.Colla);
 
             var responseDto = Mapper.Map<Response<List<UserDto>>>(response);
             return responseDto;
         }
 
-        public Response<List<UserDto>> GetAllNewUsers(string collajson)
+        public Response<List<UserDto>> GetAllNewUsers(string userjson)
         {
-            var collaId = JsonConvert.DeserializeObject<int>(collajson);
+            var user = JsonConvert.DeserializeObject<User>(userjson);
 
-            var response = this.userService.GetAllNewUsers(collaId);
+            var response = this.userService.GetAllNewUsers(user.Colla);
 
             var responseDto = Mapper.Map<Response<List<UserDto>>>(response);
             return responseDto;
