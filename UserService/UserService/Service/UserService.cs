@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using RabbitCommunications.Models;
 using UserService.Models;
 using UserService.Service.Interfaces;
@@ -25,6 +26,7 @@ namespace UserService.Service
         public Response<User> RegisterUser(User user)
         {
             var response = userServiceRepository.RegisterUser(user);
+            response.Succes =  AddPerson(user.PersonList.First()).Succes;
             return response;
         }
 
@@ -68,7 +70,12 @@ namespace UserService.Service
         public Response<User> AddPerson(Person person)
         {
             var response = userServiceRepository.AddPerson(person);
-            response.Succes = dbUpdater.AddPersons(person, "AddPerson");
+            response.Succes = dbUpdater.AddPersons(response.Data.PersonList.First(), "AddPerson");
+
+            if (!response.Succes)
+            {
+                DeletePerson(response.Data.PersonList.First());
+            }
 
             return response;
         }
@@ -77,6 +84,10 @@ namespace UserService.Service
         {
             var response = userServiceRepository.DeletePerson(person);
             response.Succes = dbUpdater.DeletePersons(person, "DeletePerson");
+            if (!response.Succes)
+            {
+                userServiceRepository.ReinsertDeletedPerson(response.Data.PersonList.First());
+            }
 
             return response;
         }
@@ -85,6 +96,10 @@ namespace UserService.Service
         {
             var response = userServiceRepository.UpdatePerson(person);
             response.Succes = dbUpdater.UpdatePersons(person, "UpdatePerson");
+            if (!response.Succes)
+            {
+                userServiceRepository.UpdatePerson(response.Data.PersonList.First());
+            }
 
             return response;
         }
@@ -114,7 +129,7 @@ namespace UserService.Service
         }
         public Response<User> ChangeSuperAdmin(User user)
         {
-            var response = userServiceRepository.UpdateRole(user);
+            var response = userServiceRepository.ChangeSuperAdmin(user);
             return response;
         }
 

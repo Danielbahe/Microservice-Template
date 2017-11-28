@@ -5,6 +5,7 @@ using UserService.Models;
 using UserService.Service.Interfaces;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Linq;
 
 namespace UserService.Service
 {
@@ -58,6 +59,7 @@ namespace UserService.Service
                 using (var reader = command.ExecuteReader())
                 {
                 }
+
                 Client.Close();
             }
             response.Succes = true;
@@ -74,7 +76,8 @@ namespace UserService.Service
                 Client.Open();
                 MySqlCommand cmd =
                     new MySqlCommand(
-                        "select * from users where UserName = '" + user.UserName + "' AND Password = '" + user.Password + "'", Client);
+                        "select * from users where UserName = '" + user.UserName + "' AND Password = '" +
+                        user.Password + "'", Client);
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -83,7 +86,7 @@ namespace UserService.Service
                     }
                 }
 
-                if (response.Data.State == 1)
+                if (response.Data.State != 4 && response.Data.State != 0)
                 {
                     response.Data = GetPersons(response.Data);
                     response.Succes = true;
@@ -95,7 +98,6 @@ namespace UserService.Service
 
                 Client.Close();
             }
-
             return response;
         }
 
@@ -210,7 +212,38 @@ namespace UserService.Service
             {
                 Client.Open();
                 var query =
-                    "INSERT INTO persons VALUES (@Id , @Alias, @BirthDate, @Colla, @Height, @Name, @SurName, @Weight, @UserId)";
+                    "INSERT INTO persons (Alias, BirthDate, Colla, Height, Name, Surname, Weight, UserId) VALUES (@Alias, @BirthDate, @Colla, @Height, @Name, @SurName, @Weight, @UserId)";
+                MySqlCommand command = new MySqlCommand(query, Client);
+                command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@BirthDate", person.BirthDate).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Colla", person.Colla).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Height", person.Height).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Name", person.Name).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@SurName", person.SurName).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@Weight", person.Weight).Direction = ParameterDirection.Input;
+                command.Parameters.AddWithValue("@UserId", person.Id).Direction = ParameterDirection.Input;
+
+                using (var reader = command.ExecuteReader())
+                {
+                }
+                response.Data = new User();
+                response.Data.PersonList = new List<Person>();
+                response.Data.PersonList.Add(GetLastPersonInserted());
+
+                Client.Close();
+            }
+            response.Succes = true;
+            return response;
+        }
+
+        public Response<User> ReinsertDeletedPerson(Person person)
+        {
+            var response = new Response<User>();
+            using (Client = new MySqlConnection(ConnectionStrings))
+            {
+                Client.Open();
+                var query =
+                    "INSERT INTO persons (Id, Alias, BirthDate, Colla, Height, Name, Surname, Weight, UserId) VALUES (@Id, @Alias, @BirthDate, @Colla, @Height, @Name, @SurName, @Weight, @UserId)";
                 MySqlCommand command = new MySqlCommand(query, Client);
                 command.Parameters.AddWithValue("@Id", person.Id).Direction = ParameterDirection.Input;
                 command.Parameters.AddWithValue("@Alias", person.Alias).Direction = ParameterDirection.Input;
@@ -225,6 +258,8 @@ namespace UserService.Service
                 using (var reader = command.ExecuteReader())
                 {
                 }
+                response.Data = new User();
+                response.Data.PersonList = new List<Person>();
                 response.Data.PersonList.Add(GetLastPersonInserted());
 
                 Client.Close();
@@ -240,6 +275,23 @@ namespace UserService.Service
             using (Client = new MySqlConnection(ConnectionStrings))
             {
                 Client.Open();
+
+                MySqlCommand countcmd =
+                    new MySqlCommand(
+                        "select COUNT(*) count from persons e where e.UserId = " + person.UserId,
+                        Client);
+                int count;
+                using (var reader = countcmd.ExecuteReader())
+                {
+                    count = Convert.ToInt32(reader["count"]);
+                }
+                if (count == 1)
+                {
+                    Client.Close();
+                    response.Succes = false;
+                    return response;
+                }
+
                 MySqlCommand cmd =
                     new MySqlCommand(
                         "delete from persons e where e.Id = " + person.Id,
@@ -275,6 +327,10 @@ namespace UserService.Service
                 using (var reader = command.ExecuteReader())
                 {
                 }
+
+                response.Data = new User();
+                response.Data.PersonList = new List<Person>();
+                response.Data.PersonList.Add(GetUserById(person.UserId).Data.PersonList.First());
                 Client.Close();
             }
             response.Succes = true;
@@ -288,7 +344,8 @@ namespace UserService.Service
             using (Client = new MySqlConnection(ConnectionStrings))
             {
                 Client.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from users where Colla = " + collaId + " AND State = 2", Client);
+                MySqlCommand cmd = new MySqlCommand("select * from users where Colla = " + collaId + " AND State = 2",
+                    Client);
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -312,7 +369,8 @@ namespace UserService.Service
             using (Client = new MySqlConnection(ConnectionStrings))
             {
                 Client.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from users where Colla = " + collaId , Client);
+                MySqlCommand cmd =
+                    new MySqlCommand("select * from users where Role != 2 AND Colla = " + collaId, Client);
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -336,7 +394,8 @@ namespace UserService.Service
             using (Client = new MySqlConnection(ConnectionStrings))
             {
                 Client.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from users where Colla = " + collaId + " AND State = 0", Client);
+                MySqlCommand cmd = new MySqlCommand("select * from users where Colla = " + collaId + " AND State = 0",
+                    Client);
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -453,29 +512,32 @@ namespace UserService.Service
             var response = new Response<User>();
             using (Client = new MySqlConnection(ConnectionStrings))
             {
-                User currentSA;
+                User currentSA = new User();
                 Client.Open();
-                var getSAQuery = "select from users where Role = 2 AND Colla = " + user.Colla;
+                var getSAQuery = "select * from users where Role = 2 AND Colla = " + user.Colla;
 
                 MySqlCommand command = new MySqlCommand(getSAQuery, Client);
 
                 using (var reader = command.ExecuteReader())
                 {
-                    currentSA = MapUser(reader);
+                    while (reader.Read())
+                    {
+                        currentSA = MapUser(reader);
+                    }
                 }
-                var downGradeSAQuery = "UPDATE users SET Role = @Role where Id = " + currentSA.Id;
+                var downGradeSAQuery = "UPDATE users SET Role = 1 where Id = " + currentSA.Id;
 
                 MySqlCommand cmd = new MySqlCommand(downGradeSAQuery, Client);
-                command.Parameters.AddWithValue("@Role", 1).Direction = ParameterDirection.Input;
-                using (var reader = command.ExecuteReader())
+                //command.Parameters.AddWithValue("@Role", 1).Direction = ParameterDirection.Input;
+                using (var reader = cmd.ExecuteReader())
                 {
                 }
 
-                var updateSAQuery = "UPDATE users SET Role = @Role where Id = " + user.Id;
+                var updateSAQuery = "UPDATE users SET Role = 2 where Id = " + user.Id;
 
                 MySqlCommand comm = new MySqlCommand(updateSAQuery, Client);
-                command.Parameters.AddWithValue("@Role", 2).Direction = ParameterDirection.Input;
-                using (var reader = command.ExecuteReader())
+                //comm.Parameters.AddWithValue("@Role", 2).Direction = ParameterDirection.Input;
+                using (var reader = comm.ExecuteReader())
                 {
                 }
                 Client.Close();

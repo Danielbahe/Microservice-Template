@@ -10,6 +10,7 @@ namespace UserService.Models
         public string SurName { get; set; }
         public string Alias { get; set; }
         public int Height { get; set; }
+        public int UserId { get; set; }
         public decimal Weight { get; set; }
         public DateTime BirthDate { get; set; }
     }

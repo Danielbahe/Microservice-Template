@@ -167,7 +167,7 @@ namespace UserService.Service
         {
             var user = JsonConvert.DeserializeObject<User>(userJson);
 
-            var response = this.userService.UpdateRole(user);
+            var response = this.userService.ChangeSuperAdmin(user);
 
             var responseDto = Mapper.Map<Response<UserDto>>(response);
             return responseDto;

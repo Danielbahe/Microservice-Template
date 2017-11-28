@@ -22,7 +22,7 @@ namespace UserService.Service.Interfaces
         Response<User> UpdateRole(User userJson);
         Response<User> UpdateState(User userJson);
         Response<User> ChangeSuperAdmin(User userJson);
-
+        Response<User> ReinsertDeletedPerson(Person person);
         //Response<User> UpdateUser(Person user);
     }
 }
