@@ -1,8 +1,10 @@
-# Microservice-Template
+# Objective
+This project purpose is learn about microservices. Obviously I have mistakes, I'm improving the code and trying to implement the best patterns.
+# Description
 A template to implement a microservices architecture.
 
-Gateway Controller (Core)
+Gateway Controller (ASP.Core)
 
-Microservice Console Aplication (Core)
+Microservices Console Aplication (ASP.Core)
 
-RabbitComunications .Net Standard 2.0 class Library
+RabbitComunications (.Net Standard 2.0 class Library)
